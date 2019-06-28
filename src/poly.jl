@@ -73,30 +73,40 @@ using SparseArrays
 
         ## Build SparseArray
         ##------------------
-        tab_init = SparseArrays.sparse(I, J, V, num_cons + 1, 1 + num_vars + num_cons + 1)
-        tab_d1 = size(tab_init, 1)
-        tab_d2 = size(tab_init, 2)
+        t_init = SparseArrays.sparse(I, J, V, num_cons + 1, 1 + num_vars + num_cons + 1)
+        t_d1 = size(t_init, 1)
+        t_d2 = size(t_init, 2)
 
         ## Solve LP
         ##---------
-        tab_current = tab_init
+        t_current = t_init
         counter = 0
-        while maximum(tab_init[tab_d1] > 0) && counter < 4
+        while maximum(t_current[t_d1, :] > 0) && counter < 4
 
             # Get idx of maximal improvement in objective
             #--------------------------------------------
-            idx = size()
-            for i in 2:size(tab_current, 2)
-                size(tab_current, 1)
+            idx = t_d1
+            max = maximum(t_current[t_d1, :])
+            for i in 2:t_d2
+                if t_current[t_d1, i] == max
+                    idx = i
+                    break
+                end
             end
-            	
+
+            t_current = eliminate_gaussian(t_current, idx)
+
             counter += 1
         end
     end
 end
 
-function eliminate_gaussian(matrix::SparseMatrixCSC, r_idx::Integer, c_idx::Integer)
+function eliminate_gaussian(matrix::SparseMatrixCSC, idx::Integer)
 
+    t_d1 = size(matrix, 1)
+    r_current = matrix[idx, :]
 
+    ## CONTINUE HERE
+    #for
 
 end
