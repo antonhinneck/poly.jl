@@ -73,9 +73,21 @@ using SparseArrays
 
         ## Build SparseArray
         ##------------------
-        sol_init =
         tab_init = SparseArrays.sparse(I, J, V, num_cons + 1, 1 + num_vars + num_cons + 1)
-        print(tab_init)
 
+        ## Solve LP
+        ##---------
+
+        counter = 0
+        while maximum(tab_init[size(tab_init, 1)] > 0) && counter < 4
+
+
+        end
     end
+end
+
+function eliminate_gaussian(matrix::SparseMatrixCSC, r_idx::Integer, c_idx::Integer)
+
+    
+
 end
