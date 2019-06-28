@@ -74,20 +74,29 @@ using SparseArrays
         ## Build SparseArray
         ##------------------
         tab_init = SparseArrays.sparse(I, J, V, num_cons + 1, 1 + num_vars + num_cons + 1)
+        tab_d1 = size(tab_init, 1)
+        tab_d2 = size(tab_init, 2)
 
         ## Solve LP
         ##---------
-
+        tab_current = tab_init
         counter = 0
-        while maximum(tab_init[size(tab_init, 1)] > 0) && counter < 4
+        while maximum(tab_init[tab_d1] > 0) && counter < 4
 
-
+            # Get idx of maximal improvement in objective
+            #--------------------------------------------
+            idx = size()
+            for i in 2:size(tab_current, 2)
+                size(tab_current, 1)
+            end
+            	
+            counter += 1
         end
     end
 end
 
 function eliminate_gaussian(matrix::SparseMatrixCSC, r_idx::Integer, c_idx::Integer)
 
-    
+
 
 end
