@@ -1,5 +1,5 @@
 include("C:/Users/Anton Hinneck/.julia/packages/poly/src/poly.jl")
-using SparseArrays
+using SparseArrays: SparseMatrixCSC
 
 obj = [5, 4, 3]
 

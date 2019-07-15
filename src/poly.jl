@@ -4,6 +4,17 @@ using SparseArrays
 ## Simple Simplex Solver
 ##----------------------
 
+    function eliminate_gaussian(matrix::SparseMatrixCSC, row_idx::Integer)
+
+        t_d1 = size(matrix, 1)
+        t_d2 = size(matrix, 2)
+        r_current = matrix[row_idx, :]
+
+        ## CONTINUE HERE
+        #for
+
+    end
+
     function solve(objective, A, rhs)
 
         num_vars = size(A[1], 1)
@@ -81,7 +92,7 @@ using SparseArrays
         ##---------
         t_current = t_init
         counter = 0
-        while maximum(t_current[t_d1, :] > 0) && counter < 4
+        while maximum(t_current[t_d1, :]) > 0 && counter < 4
 
             # Get idx of maximal improvement in objective
             #--------------------------------------------
@@ -99,14 +110,4 @@ using SparseArrays
             counter += 1
         end
     end
-end
-
-function eliminate_gaussian(matrix::SparseMatrixCSC, idx::Integer)
-
-    t_d1 = size(matrix, 1)
-    r_current = matrix[idx, :]
-
-    ## CONTINUE HERE
-    #for
-
 end
